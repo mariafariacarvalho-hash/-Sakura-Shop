@@ -434,12 +434,12 @@
 </div>
 
 <div class="categories">
-    <button class="category active">Todos</button>
-    <button class="category">🍜 Alimentação</button>
-    <button class="category">🍵 Bebidas</button>
-    <button class="category">🎎 Cultura</button>
-    <button class="category">🏠 Casa</button>
-    <button class="category">🎁 Presentes</button>
+    <button class="category active" data-category="all">Todos</button>
+    <button class="category" data-category="alimentacao">🍜 Alimentação</button>
+    <button class="category" data-category="bebidas">🍵 Bebidas</button>
+    <button class="category" data-category="cultura">🎎 Cultura</button>
+    <button class="category" data-category="casa">🏠 Casa</button>
+    <button class="category" data-category="presentes">🎁 Presentes</button>
 </div>
 
 <main class="products-section">
@@ -451,7 +451,7 @@
 
     <div class="products">
 
-        <div class="product-card">
+        <div class="product-card" data-category="alimentacao">
             <div class="image-container">
                 <span class="badge">Popular</span>
                 <img class="product-image"
@@ -468,7 +468,7 @@
             </div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-category="bebidas">
             <div class="image-container">
                 <span class="badge">Novo</span>
                 <img class="product-image"
@@ -485,7 +485,7 @@
             </div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-category="cultura">
             <div class="image-container">
                 <img class="product-image"
                     src="https://acdn-us.mitiendanube.com/stores/858/537/products/e252ac38-87c2-48aa-9d2e-1cf9f06edef4-baea4ac967dd60724817531206790076-480-0.webp"
@@ -518,7 +518,7 @@
             </div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-category="alimentacao">
             <div class="image-container">
                 <img class="product-image"
                     src="https://cdn.awsli.com.br/837/837493/produto/91447888/e1f2d0b22b.jpg"
@@ -551,7 +551,7 @@
             </div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-category="alimentacao">
             <div class="image-container">
                 <span class="badge">Novo</span>
                 <img class="product-image"
@@ -568,7 +568,7 @@
             </div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-category="cultura">
             <div class="image-container">
                 <img class="product-image"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQImUzUI7A38HFWPPomhnEOZaeGxxpMPT93yd0aXdzx2pWVUzN1OZs0TbK&s=10"
@@ -584,7 +584,7 @@
             </div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-category="cultura">
             <div class="image-container">
                 <span class="badge">Popular</span>
                 <img class="product-image"
@@ -601,7 +601,7 @@
             </div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-category="cultura">
             <div class="image-container">
                 <img class="product-image"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNr4Yd1K3VC7e1VNL-0ABlxzihysE0RobCJIOwMm7LKCyejVxCGozEGhE&s=10"
@@ -617,7 +617,7 @@
             </div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-category="cultura">
             <div class="image-container">
                 <span class="badge">Oferta</span>
                 <img class="product-image"
@@ -634,7 +634,7 @@
             </div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-category="cultura">
             <div class="image-container">
                 <span class="badge">Novo</span>
                 <img class="product-image"
@@ -651,7 +651,7 @@
             </div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-category="cultura">
             <div class="image-container">
                 <img class="product-image"
                     src="https://voyapon.s3.amazonaws.com/wp-content/uploads/2021/08/11210406/clementine-noren-omihachiman.jpg"
@@ -750,7 +750,7 @@
             </div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-category="cultura">
             <div class="image-container">
                 <img class="product-image"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0fyBdW7g_Dfj5LiQDb7a7FrGD7H2mn4lFSr1r50nXQY-jc9-FRLVUoLF1&s=10"
@@ -783,7 +783,7 @@
             </div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-category="cultura">
             <div class="image-container">
                 <img class="product-image"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKnG4cXArJAWODD67k7pyBqpwhU4UjehSu49pXxqQSemaTZQ7ap_3D3_Q&s=10"
@@ -799,7 +799,7 @@
             </div>
         </div>
 
-        <div class="product-card">
+        <div class="product-card" data-category="cultura">
             <div class="image-container">
                 <span class="badge">Popular</span>
                 <img class="product-image"
@@ -1062,13 +1062,18 @@
         closeCart();
     }
 
-    function searchProducts() {
+    function applyFilters() {
 
         const search =
             document
                 .getElementById("search")
                 .value
                 .toLowerCase();
+
+        const activeCategory =
+            document
+                .querySelector(".category.active")
+                ?.dataset.category || "all";
 
         const products =
             document.querySelectorAll(
@@ -1083,12 +1088,29 @@
                     .textContent
                     .toLowerCase();
 
-            if (name.includes(search)) {
-                product.style.display = "";
-            } else {
-                product.style.display = "none";
-            }
+            const matchesSearch =
+                name.includes(search);
+
+            const matchesCategory =
+                activeCategory === "all" ||
+                product.dataset.category === activeCategory;
+
+            product.style.display =
+                matchesSearch && matchesCategory ? "" : "none";
         });
+    }
+
+    document.querySelectorAll(".category").forEach(button => {
+        button.addEventListener("click", () => {
+            document.querySelectorAll(".category").forEach(item => {
+                item.classList.toggle("active", item === button);
+            });
+            applyFilters();
+        });
+    });
+
+    function searchProducts() {
+        applyFilters();
     }
 
 </script>
